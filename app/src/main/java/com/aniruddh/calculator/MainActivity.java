@@ -262,27 +262,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else {
                         Val1=Math.sqrt(Val1.parseDouble(txtAnswer.getText().toString()))  ;
-                        txtAnswer.setText(Val1.toString()); Sign="^";solvedWithouEqu=true;
-                    }
-                }
-                catch (Exception ex) {txtAnswer.setText("0");}
-                finally {
-
-                }
-
-            }
-        });
-        btnSqr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try{
-                    if (Val1==0.0){
-                        Val1=Double.parseDouble(txtAnswer.getText().toString()) ;
-                        txtAnswer.setText(""); Sign="^";Val2=Double.parseDouble("0");
-                    }
-                    else {
-                        Val1=Math.sqrt(Val1.parseDouble(txtAnswer.getText().toString()))  ;
-                        txtAnswer.setText(Val1.toString()); Sign="^";solvedWithouEqu=true;
+                        txtAnswer.setText(Val1.toString()); Sign="sqrt";solvedWithouEqu=true;
                     }
                 }
                 catch (Exception ex) {txtAnswer.setText("0");}
@@ -298,7 +278,7 @@ public class MainActivity extends AppCompatActivity {
                 try{
                     if (Val1==0.0){
                         Val1=Double.parseDouble(txtAnswer.getText().toString()) ;
-                        txtAnswer.setText(""); Sign="^";Val2=Double.parseDouble("0");
+                        txtAnswer.setText(""); Sign="cbrt";Val2=Double.parseDouble("0");
                     }
                     else {
                         Val1=Math.cbrt(Val1.parseDouble(txtAnswer.getText().toString()))  ;
@@ -347,6 +327,8 @@ public class MainActivity extends AppCompatActivity {
                         case  "/":Answer=Val1 / Val2; break;
                         case  "%":Answer=Val1 * (Val2/100); break;
                         case  "^":Answer=Math.pow(Val1, Val2); break;
+                        case  "sqrt":Answer=Math.sqrt(Val1);break;
+                        case "cbrt":Answer=Math.cbrt(Val1);break;
                         default:
                     }
                     txtAnswer.setText(String.format(Answer.toString()));

@@ -10,7 +10,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     EditText txtAnswer;
-    Button btn1, btn2,btn3, btn4,btn5,btn6,btn7,btn8,btn9,btn0,btnDot,btnSqr;
+    Button btn1, btn2,btn3, btn4,btn5,btn6,btn7,btn8,btn9,btn0,btnDot,btnSqr,btnCrt;
     Button btnAdd, btnSubt,btnMult,btnEquals,btnCe,btnC,btnDiv,btnPerc,btnExp;
     Double Answer; Double Val2 =0.0; Double Val1 =0.1;
     String Sign; boolean solved = false; boolean solvedWithouEqu = false;
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         btnDot=(Button)findViewById(R.id.dot);
         btnMult=(Button)findViewById(R.id.mult);
         btnSqr=(Button)findViewById(R.id.sqrt);
+        btnCrt=(Button)findViewById(R.id.Croot);
         btnExp=(Button)findViewById(R.id.exp);
 
         btn0.setOnClickListener(new View.OnClickListener() {
@@ -241,6 +242,66 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else {
                         Val1=Math.pow(Val1, Double.parseDouble(txtAnswer.getText().toString()))  ;
+                        txtAnswer.setText(Val1.toString()); Sign="^";solvedWithouEqu=true;
+                    }
+                }
+                catch (Exception ex) {txtAnswer.setText("0");}
+                finally {
+
+                }
+
+            }
+        });
+        btnSqr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    if (Val1==0.0){
+                        Val1=Double.parseDouble(txtAnswer.getText().toString()) ;
+                        txtAnswer.setText(""); Sign="^";Val2=Double.parseDouble("0");
+                    }
+                    else {
+                        Val1=Math.sqrt(Val1.parseDouble(txtAnswer.getText().toString()))  ;
+                        txtAnswer.setText(Val1.toString()); Sign="^";solvedWithouEqu=true;
+                    }
+                }
+                catch (Exception ex) {txtAnswer.setText("0");}
+                finally {
+
+                }
+
+            }
+        });
+        btnSqr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    if (Val1==0.0){
+                        Val1=Double.parseDouble(txtAnswer.getText().toString()) ;
+                        txtAnswer.setText(""); Sign="^";Val2=Double.parseDouble("0");
+                    }
+                    else {
+                        Val1=Math.sqrt(Val1.parseDouble(txtAnswer.getText().toString()))  ;
+                        txtAnswer.setText(Val1.toString()); Sign="^";solvedWithouEqu=true;
+                    }
+                }
+                catch (Exception ex) {txtAnswer.setText("0");}
+                finally {
+
+                }
+
+            }
+        });
+        btnCrt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    if (Val1==0.0){
+                        Val1=Double.parseDouble(txtAnswer.getText().toString()) ;
+                        txtAnswer.setText(""); Sign="^";Val2=Double.parseDouble("0");
+                    }
+                    else {
+                        Val1=Math.cbrt(Val1.parseDouble(txtAnswer.getText().toString()))  ;
                         txtAnswer.setText(Val1.toString()); Sign="^";solvedWithouEqu=true;
                     }
                 }
